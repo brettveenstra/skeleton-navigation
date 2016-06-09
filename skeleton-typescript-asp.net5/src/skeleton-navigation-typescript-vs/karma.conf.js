@@ -6,7 +6,7 @@ module.exports = function(config) {
       configFile: 'wwwroot/config.js',
       config: {
         paths: {
-          "*": null,
+          "*": "*",
           "src/*": "src/*",
           "typescript": "node_modules/typescript/lib/typescript.js",
           "systemjs": "node_modules/systemjs/dist/system.js",
@@ -25,12 +25,13 @@ module.exports = function(config) {
         transpiler: 'typescript'
       },
       serveFiles: [
-        'src/**/*.ts',
+        'src/**/*.*',
         'wwwroot/jspm_packages/**/*.js'
       ]
     },
     files: [
-      'test/unit/*.spec.ts'
+      'test/unit/setup.ts',
+      'test/unit/*.ts'
     ],
     proxies:{
       '/base/jspm_packages/' : '/base/wwwroot/jspm_packages/'
